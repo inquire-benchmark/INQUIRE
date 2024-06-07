@@ -12,7 +12,7 @@ INQUIRE is a benchmark for expert-level natural world image retrieval queries.
 
 ## Download
 
-We make the INQUIRE benchmark and the iNaturalist 2024 dataset available for public download. Please see information and download links [here](data/README.md).
+The **INQUIRE benchmark** and **the iNaturalist 2024 dataset (iNat24)** available for public download. Please see information and download links [here](data/README.md).
 
 ## iNat Retrieval Evaluation
 
