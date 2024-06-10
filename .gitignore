@@ -1,3 +1,4 @@
 .DS_Store
-data/inat24
+/data/inat24
+/data/top_k_cache
 __pycache__/

@@ -1,0 +1,8 @@
+all_clip==1.2.0
+numpy==1.26.3
+pandas==2.2.0
+pyarrow==14.0.2
+scikit-learn==1.4.0
+torch==2.1.2
+transformers==4.41.0
+tqdm>=4.66.1
