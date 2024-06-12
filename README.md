@@ -27,7 +27,7 @@ Then, install the dependencies:
 pip install -r requirements.txt
 ```
 
-Our evaluations use pre-computed CLIP embeddings over iNat24. If you'd like to replicate our evaluations or just work with these embeddings, please downlaod them [here](data/README.md). 
+Our evaluations use pre-computed CLIP embeddings over iNat24. If you'd like to replicate our evaluations or just work with these embeddings, please download them [here](data/README.md). 
 
 ## INQUIRE-Fullrank Evaluation
 
