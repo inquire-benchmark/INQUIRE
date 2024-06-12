@@ -12,7 +12,7 @@ INQUIRE is a benchmark for expert-level natural world image retrieval queries.
 
 ## Download
 
-The **INQUIRE benchmark** and **the iNaturalist 2024 dataset (iNat24)** available for public download. Please see information and download links [here](data/README.md).
+The **INQUIRE benchmark** and **the iNaturalist 2024 dataset (iNat24)** are available for public download. Please find information and download links [here](data/README.md).
 
 ## Setup
 
@@ -31,9 +31,9 @@ Our evaluations use pre-computed CLIP embeddings over iNat24. If you'd like to r
 
 ## INQUIRE-Fullrank Evaluation
 
-**INQUIRE-Fullrank** is the full-dataset retrieval task, starting from all 5 million images from iNat24. 
+**INQUIRE-Fullrank** is the full-dataset retrieval task, starting from all 5 million images of iNat24. 
 
-Evaluate full-dataset retrieval with different CLIP models:
+Evaluate full-dataset retrieval with different CLIP-style models:
 
 ```
 python eval_clip_fullrank.py
@@ -43,7 +43,7 @@ python eval_clip_fullrank.py
 
 **INQUIRE-Rerank** evaluates reranking performance by fixing an initial retrieval of 100 images for each query (from OpenClip's CLIP ViT-H-14-378). 
 
-Evaluate reranking with different CLIP models:
+Evaluate reranking with different CLIP-style models:
 
 ```
 python eval_clip_rerank.py
