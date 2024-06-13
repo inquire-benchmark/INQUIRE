@@ -2,7 +2,7 @@
 
 ![INQUIRE teaser figure](assets/teaser.jpg)
 
-[**🌐 Homepage**](https://inquire-benchmark.github.io/) | [**🖼️ Dataset**](#) 
+[**🌐 Homepage**](https://inquire-benchmark.github.io/) | [**🖼️ Dataset**](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/) 
 
 INQUIRE is a benchmark for expert-level natural world image retrieval queries.
 
