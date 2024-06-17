@@ -6,6 +6,8 @@
 
 INQUIRE is a benchmark for expert-level natural world image retrieval queries.
 
+**Please note that this repository is preliminary. Both the code and dataset will be updated.**
+
 
 ## 🔔 News
 - **🚀 [2024-06-07]** INQUIRE is up! 
