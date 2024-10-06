@@ -14,7 +14,7 @@ from all_clip import load_clip as load_vanilla_clip
 
 
 def load_clip(clip_name, device, **args):
-    """Wrapper around all_clip load_clip which adds support for wildcilp and bioclip"""
+    """Wrapper around all_clip's load_clip which adds support for wildclip and bioclip"""
     
     if clip_name.startswith("wildclip"):
         import clip
@@ -59,7 +59,7 @@ class ParquetMetadataProvider:
 
     
 class EmbeddingProvider:
-    """Serves memory-mapped embeddings from an generated embedding directory."""
+    """Serves memory-mapped embeddings from a generated embedding directory."""
     def __init__(self, embedding_folder):
         data_dir = Path(embedding_folder)
         emb_files = sorted(data_dir.glob("*.npy"))
@@ -121,60 +121,36 @@ def load_metdata(index_folder):
 class TopKPredictionStore:
     """Cache top K predictions for variety of models and Ks"""
 
-    def __init__(self, data_dir, cache_dir='data/top_k_cache', device='cpu'):
+    def __init__(self, data_dir, cache_dir='cache', device='cpu'):
         self.data_dir = data_dir
         self.device = device
         self.cache_dir = cache_dir
         if not os.path.isdir(cache_dir):
             os.mkdir(cache_dir)
 
+        # Maps models from their short name to their fully specified name
         self.models = {
-            'vit-b-32': {
-                'clip_name': 'hf_clip:openai/clip-vit-base-patch32'
-            },
-            'wildclip-t1': {
-                'clip_name': 'wildclip_vitb16_t1'
-            },
-            'wildclip-t1t7-lwf': {
-                'clip_name': 'wildclip_vitb16_t1t7_lwf'
-            },
-            'bioclip': {
-                'clip_name': 'bioclip'
-            },
-            'rn50': {
-                'clip_name': 'open_clip:RN50/openai'
-            },
-            'rn50x16': {
-                'clip_name': 'open_clip:RN50x16/openai'
-            },
-            'vit-b-16': {
-                'clip_name': 'hf_clip:openai/clip-vit-base-patch16'
-            },
-            'vit-l-14': {
-                'clip_name': 'hf_clip:openai/clip-vit-large-patch14'
-            },
-            'vit-b-16-dfn': {
-                'clip_name': 'open_clip:ViT-B-16/dfn2b',
-            },
-            'vit-l-14-dfn': {
-                'clip_name': 'open_clip:ViT-L-14-quickgelu/dfn2b',
-            },
-            'vit-h-14-378': {
-                'clip_name': 'open_clip:ViT-H-14-378-quickgelu/dfn5b'
-            },
-            'siglip-vit-l-16-384': {
-                'clip_name': 'open_clip:ViT-L-16-SigLIP-384/webli'
-            },
-            'siglip-so400m-14-384': {
-                'clip_name': 'open_clip:ViT-SO400M-14-SigLIP-384/webli'
-            },
+            'vit-b-32': 'hf_clip:openai/clip-vit-base-patch32',
+            'wildclip-t1': 'wildclip_vitb16_t1',
+            'wildclip-t1t7-lwf': 'wildclip_vitb16_t1t7_lwf',
+            'bioclip': 'bioclip',
+            'rn50': 'open_clip:RN50/openai',
+            'rn50x16': 'open_clip:RN50x16/openai',
+            'vit-b-16': 'hf_clip:openai/clip-vit-base-patch16',
+            'vit-l-14': 'hf_clip:openai/clip-vit-large-patch14',
+            'vit-b-16-dfn': 'open_clip:ViT-B-16/dfn2b',
+            'vit-l-14-dfn': 'open_clip:ViT-L-14-quickgelu/dfn2b',
+            'vit-h-14-378': 'open_clip:ViT-H-14-378-quickgelu/dfn5b',
+            'siglip-vit-l-16-384': 'open_clip:ViT-L-16-SigLIP-384/webli',
+            'siglip-so400m-14-384': 'open_clip:ViT-SO400M-14-SigLIP-384/webli',
         }
         self.current_model = None
 
     def load_model(self, model_name):
+        """Load a CLIP model and its corresponding index into memory."""
         if self.current_model != model_name:
             index_path = os.path.join(self.data_dir, 'embs', model_name)
-            clip_name = self.models[model_name]['clip_name']
+            clip_name = self.models[model_name]
 
             print('Loading model:', model_name)
             print('  >> With index at path:', index_path)
@@ -190,6 +166,15 @@ class TopKPredictionStore:
             self.tokenizer = tokenizer
 
     def get_top_k(self, queries, model_name, k, recalculate=False, from_k=1000):
+        """Get top-k predictions for a given model and set of queries.
+        
+        Args:
+            queries (list): List of queries to retrieve top-k predictions for.
+            model_name (str): Name of the model to use for retrieval.
+            k (int): Number of top-k predictions to return.
+            recalculate (bool): Whether to recalculate the top-k predictions, or use a cached version.
+            from_k (int): Number of top-k predictions to calculate initially before truncating to k."""
+        
         if model_name not in self.models.keys():
             raise ValueError(f'Model with name {model_name} not found.')
         if from_k < k:
@@ -198,30 +183,28 @@ class TopKPredictionStore:
         model_name_sanitized = model_name.replace(":", "__").replace("/", "--")
         cache_path = os.path.join(self.cache_dir, f"{model_name_sanitized}--top-{from_k}.pkl")
         
-        if os.path.exists(cache_path) and not recalculate:
+        cache = {}
+        if os.path.exists(cache_path):
             with open(cache_path, 'rb') as f:
-                data = pickle.load(f)
+                cache = pickle.load(f)        
 
-            # return data
-        
-            data_subset = []
-            for top_k_query in data:
-                data_subset.append({
-                    "query": top_k_query["query"],
-                    "distances": top_k_query["distances"][:k],
-                    "indices": top_k_query["indices"][:k],
-                    "matches": top_k_query["matches"][:k]
-                })
-            return data_subset
+        top_k_data = []
+        found_new_queries = False
 
-        else:
-            print('No cache file found, or forced to recalculate. Computing top-k...')
+        for query in queries:
+            if query in cache and not recalculate:
+                top_k_query = cache[query]
+                
+            else:
+                # No cache was found for this query. Need to recalculate.
+                if not found_new_queries:
+                    found_new_queries = True
+                    print('No cache file found for query, or forced to recalculate. Computing top-k...')
 
-            self.load_model(model_name)
+                self.load_model(model_name)
 
-            data = []
-            for query in queries:
                 print("    > "+query)
+
                 # Get text embedding
                 text = self.tokenizer(query).to(self.device)
                 with torch.no_grad(): #, torch.cuda.amp.autocast():
@@ -232,22 +215,26 @@ class TopKPredictionStore:
                 # Get CLIP nearest neighbors
                 distances, indices = self.index.search(text_emb, from_k)
                 matches = self.metadata.get(indices.squeeze().tolist())
-                data.append({
+                top_k_query = {
                     "query": query,
                     "distances": distances.cpu(),
                     "indices": indices.cpu(),
                     "matches": matches
-                })
+                }
+                
+                # add to cache
+                cache[query] = top_k_query
+                
+            top_k_data.append({
+                "query": top_k_query["query"],
+                "distances": top_k_query["distances"][:k],
+                "indices": top_k_query["indices"][:k],
+                "matches": top_k_query["matches"][:k]
+            })
 
+
+        if found_new_queries:
             with open(cache_path, 'wb') as f:
-                pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
+                pickle.dump(cache, f, protocol=pickle.HIGHEST_PROTOCOL)
 
-            data_subset = []
-            for top_k_query in data:
-                data_subset.append({
-                    "query": top_k_query["query"],
-                    "distances": top_k_query["distances"][:k],
-                    "indices": top_k_query["indices"][:k],
-                    "matches": top_k_query["matches"][:k]
-                })
-            return data_subset
+        return top_k_data

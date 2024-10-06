@@ -5,5 +5,5 @@ pandas==2.2.0
 pyarrow==14.0.2
 scikit-learn==1.4.0
 torch==2.1.2
-transformers==4.41.0
+transformers==4.45.1
 tqdm>=4.66.1
