@@ -10,6 +10,7 @@ INQUIRE is a benchmark for expert-level natural world image retrieval queries.
 
 
 ## 🔔 News
+- **🚀 [2024-10-08]** INQUIRE was accepted to NeurIPS 2024 (Datasets and Benchmarks Track)!
 - **🚀 [2024-06-07]** INQUIRE is up! 
 
 ## Download
