@@ -1,0 +1,201 @@
+,query_id,query_text,supercategory,category,iconic_group
+0,3,A mongoose standing upright alert,Behavior,Defensive and Survival Behaviors,Mammals
+1,4,A meadowlark vocalizing,Behavior,Cooperative and Social Behaviors,Birds
+2,7,puffins carrying food,Behavior,Feeding and Hydration,Birds
+5,14,A female pheasant,Appearance,Sex identification,Birds
+6,15,Dead hog-nosed skunk,Appearance,Health and Disease,Mammals
+7,17,Mushrooms growing in a fairy ring formation,Context,Miscellaneous Context,Fungi
+8,18,Tagged swan,Appearance,Tracking and Identification,Birds
+9,19,cross orbweaver,Species,Species ID,Arachnids
+11,22,Zebra Mussel,Species,Species ID,Mollusks
+12,23,Spotted Lanternfly,Species,Species ID,Insects
+14,27,a hermit crab using plastic waste as a shell,Context,Human Impact,Animalia
+15,28,sick cassava plant,Appearance,Health and Disease,Plants
+16,29,Fishing net on a reef,Context,Human Impact,
+17,30,black knot caused by a fungal pathogen,Appearance,Health and Disease,Fungi
+18,31,bridal veil stinkhorn mushroom,Species,Species ID,Fungi
+19,33,Green Shore Crab,Species,Species ID,Animalia
+20,34,an oxpecker on a zebra,Context,Parasitism and Symbiosis,Combo
+22,36,a possum on a power line,Context,Human Impact,Mammals
+23,37,an image containing a photographic reference scale with a color swatch,Context,Miscellaneous Context,
+24,38,A close-up of an ant carrying a leaf,Behavior,Cooperative and Social Behaviors,Insects
+25,39,Swallowtail butterfly caterpillar camouflaged as bird droppings,Appearance,Life Cycle and Development,Insects
+26,41,a lion with a collar around its neck,Appearance,Tracking and Identification,Mammals
+28,43,Cheetah with radio collar,Appearance,Tracking and Identification,Mammals
+29,44,Rhino with ear notches,Appearance,Tracking and Identification,Mammals
+30,45,an image showing a humpback whale fluke with clearly identifiable markings,Appearance,Tracking and Identification,Mammals
+31,47,Dodder or dodder laurel,Species,Species ID,Plants
+32,48,Parasitic Honey Mushrooms,Species,Species ID,Fungi
+33,49,cheetah with cubs,Behavior,Cooperative and Social Behaviors,Mammals
+34,50,Gazelle being vigilant/looking around,Behavior,Defensive and Survival Behaviors,Mammals
+35,51,elephant near a fence,Context,Human Impact,Mammals
+36,54,grebe with babies on its back,Behavior,Cooperative and Social Behaviors,Birds
+37,56,black-winged kite carrying prey in its talons,Behavior,Feeding and Hydration,Birds
+38,57,parrotfish feeding,Behavior,Feeding and Hydration,Fish
+39,58,bird perched on a hippo,Context,Parasitism and Symbiosis,Combo
+40,59,Elephants at a watering hole,Behavior,Feeding and Hydration,Mammals
+41,60,A male and female cardinal sharing food,Behavior,Feeding and Hydration,Birds
+42,61,A cicada in the process of shedding its exoskeleton,Appearance,Life Cycle and Development,Insects
+43,62,everted osmeterium,Behavior,Defensive and Survival Behaviors,Insects
+44,63,Sea turtle with algae on its shell,Context,Parasitism and Symbiosis,Reptiles
+46,65,Zebra and wildebeest grazing together,Context,Parasitism and Symbiosis,Mammals
+47,66,Sharks with remoras attached,Context,Parasitism and Symbiosis,Fish
+48,67,macaques engaging in mutual grooming behavior,Behavior,Cooperative and Social Behaviors,Mammals
+49,68,a microscopy slide showing the cellular structure of a plant,Context,Miscellaneous Context,Plants
+50,69,hyenas eating a kill,Behavior,Feeding and Hydration,Mammals
+52,71,A peacock male displaying its feathers,Behavior,"Mating, Courtship, Reproduction",Birds
+53,72,A satin bowerbird's bower ornamented with blue objects,Context,Animal Structures and Habitats,Birds
+56,75,Elk bugling during the rut,Behavior,"Mating, Courtship, Reproduction",Mammals
+57,76,Dolphins performing acrobatics,Behavior,Miscellaneous Behavior,Mammals
+58,77,Green and black poison dart frog,Species,Species ID,Amphibians
+59,78,monkey slug caterpillar,Appearance,Life Cycle and Development,Insects
+61,80,bird dead in front of a window,Context,Human Impact,Birds
+62,82,Emergence of large colony of mexican free-tailed bats,Behavior,Cooperative and Social Behaviors,Mammals
+65,85,fruit bat eating fruit upside down,Behavior,Feeding and Hydration,Mammals
+67,88,a herd of more than 10 impalas,Behavior,Cooperative and Social Behaviors,Mammals
+68,89,canada geese flying in v-formation,Behavior,Cooperative and Social Behaviors,Birds
+70,92,vigilant prairie dog stands guard,Behavior,Defensive and Survival Behaviors,Mammals
+71,93,mountain goat climbing rocky outcrops with its young,Behavior,Cooperative and Social Behaviors,Mammals
+72,94,laysan albatross mostly in dark mottled brown plumage,Appearance,Life Cycle and Development,Birds
+74,96,bananaquit pollinating flower,Context,Parasitism and Symbiosis,Birds
+75,97,lorikeet pollinating flower,Context,Parasitism and Symbiosis,Birds
+76,99,elephant covered in mud or dirt,Behavior,Miscellaneous Behavior,Mammals
+78,101,jungle babblers allopreening,Behavior,Cooperative and Social Behaviors,Birds
+79,104,Inflated pufferfish,Behavior,Defensive and Survival Behaviors,Fish
+80,105,a nest with eggs displaying brood parasitism by a cowbird,Context,Parasitism and Symbiosis,Birds
+81,106,fiddler crab with an oversized chela,Appearance,Sex identification,Animalia
+82,107,Male crimsonband wrasse,Appearance,Sex identification,Fish
+84,110,Rusty tussock moth adult female,Appearance,Sex identification,Insects
+85,112,male velvet ant,Appearance,Sex identification,Insects
+86,113,Male Xanthagrion erythroneurum,Appearance,Sex identification,Insects
+87,114,bird caught in a net,Context,Human Impact,Birds
+89,116,turtle roadkill,Appearance,Health and Disease,Reptiles
+90,119,beached orca,Appearance,Health and Disease,Mammals
+91,122,potter wasp nest,Context,Animal Structures and Habitats,Insects
+92,123,"Strawberry poison-dart frog with the ""la gruta"" color morph from Isla Colon",Appearance,Unique appearances or morphs,Amphibians
+93,124,"Strawberry poison-dart frog with the ""blue jeans"" color morph",Appearance,Unique appearances or morphs,Amphibians
+94,125,Melanistic leopard,Appearance,Unique appearances or morphs,Mammals
+95,126,Melanistic jaguar,Appearance,Unique appearances or morphs,Mammals
+97,128,albino american robin,Appearance,Unique appearances or morphs,Birds
+98,129,measuring the body dimensions of a bee,Context,Collected Specimens,Insects
+101,134,female or immature evening grosbeak,Appearance,Sex identification,Birds
+102,135,dorsal side of mourning cloak butterfly,Context,Miscellaneous Context,Insects
+103,136,ventral side of mourning cloak butterfly,Context,Miscellaneous Context,Insects
+104,137,great golden digger wasp carrying an orthopteron,Behavior,Feeding and Hydration,Insects
+107,140,male ruby-throated hummingbird in flight,Appearance,Sex identification,Birds
+108,141,pair of great crested grebes potentially performing the weed dance,Behavior,"Mating, Courtship, Reproduction",Birds
+109,142,male smooth newt with developed crest,Behavior,"Mating, Courtship, Reproduction",Amphibians
+111,144,antelopes head-butting,Behavior,Defensive and Survival Behaviors,Mammals
+112,145,flamingo standing on one leg,Behavior,Miscellaneous Behavior,Birds
+113,146,red-tailed hawk perched on a utility pole,Behavior,Feeding and Hydration,Birds
+114,147,a sandhill crane couple with their chicks,Behavior,Cooperative and Social Behaviors,Birds
+115,148,blue jay eating whole peanuts,Behavior,Feeding and Hydration,Birds
+118,151,Black Skimmer with a leg band,Appearance,Tracking and Identification,Birds
+119,153,common murre beached carcass,Appearance,Health and Disease,Birds
+120,154,fire salamander with a barred color pattern,Appearance,Unique appearances or morphs,Amphibians
+121,155,southern aligator lizard with cut tail,Appearance,Health and Disease,Reptiles
+122,156,blue dragon nudibranch,Species,Species ID,Mollusks
+123,157,moose with hair loss,Appearance,Health and Disease,Mammals
+124,158,elk with hair loss,Appearance,Health and Disease,Mammals
+125,159,couple of black-bellied whistling ducks with their youngs sharing parenting duties,Behavior,Cooperative and Social Behaviors,Birds
+128,162,brown bear near vehicle,Context,Human Impact,Mammals
+129,163,killdeer feigning injury,Behavior,Defensive and Survival Behaviors,Birds
+131,165,camera trap photo of a bobcat captured in the nightime,Context,Collected Specimens,Mammals
+132,166,camera trap photo of a stag red deer,Context,Collected Specimens,Mammals
+133,167,camera trap photo of chital with its head down,Context,Collected Specimens,Mammals
+134,168,camera trap photo of a springbok drinking water,Context,Collected Specimens,Mammals
+135,169,female beautiful demoiselle,Appearance,Sex identification,Insects
+136,170,human handling a bat with bare hands,Context,Human Impact,Mammals
+137,171,fire pink with dark-colored anthers,Appearance,Health and Disease,Plants
+138,172,water snake feeding on fish,Behavior,Feeding and Hydration,Reptiles
+139,173,Mexican grass-carrying wasp visiting a purple flower,Context,Parasitism and Symbiosis,Insects
+140,174,giant resin bee feeding on sunflower,Context,Parasitism and Symbiosis,Insects
+142,176,eastern gray squirrel displaying melanistic pelage,Appearance,Unique appearances or morphs,Mammals
+143,182,white-tailed deer flagging its tail,Behavior,Defensive and Survival Behaviors,Mammals
+145,184,hot lips plant with blue fruits,Context,Miscellaneous Context,Plants
+148,187,Lilac Bonnet with edges turnt up revealing its gills,Appearance,Life Cycle and Development,Fungi
+149,188,Fly Agaric in yellow form,Appearance,Unique appearances or morphs,Fungi
+150,189,Scarlet Waxy Cap with visible gills,Context,Miscellaneous Context,Fungi
+151,190,Blackening Waxcap mushroom turned fully black,Appearance,Life Cycle and Development,Fungi
+152,191,a bighorn sheep with a tracking collar around its neck,Appearance,Tracking and Identification,Mammals
+153,192,Hamerkop collecting nesting material,Context,Animal Structures and Habitats,Birds
+155,194,close-up of shagbark hickory tree bark,Species,Species ID,Plants
+156,195,close-up of sweet cherry tree bark,Species,Species ID,Plants
+157,196,close-up of sugar maple leaf,Species,Species ID,Plants
+158,197,close-up of silver maple leaf,Species,Species ID,Plants
+161,201,Yellow-faced Honeyeater in birdbath,Behavior,Feeding and Hydration,Birds
+162,202,Eastern Red Bat in flight,Behavior,Miscellaneous Behavior,Mammals
+163,203,Big Brown Bat roosting,Behavior,Miscellaneous Behavior,Mammals
+165,205,Sage Thrasher vocalizing,Behavior,Cooperative and Social Behaviors,Birds
+166,206,male Red-winged Blackbird vocalizing,Behavior,Cooperative and Social Behaviors,Birds
+167,207,Northern Mockingbird carrying out its food,Behavior,Feeding and Hydration,Birds
+168,208,picture showing more than fifty Velvety Tree Ants,Behavior,Cooperative and Social Behaviors,Insects
+169,209,picture showing more than fifty Mediterranean Acrobat Ants,Behavior,Cooperative and Social Behaviors,Insects
+170,210,Leafhopper Assassin Bug predating lady beetle,Behavior,Feeding and Hydration,Insects
+171,211,Milkweed Assassin Bug predating a bee or wasp,Behavior,Feeding and Hydration,Insects
+173,215,Channeled Applesnail covered by green algae,Context,Parasitism and Symbiosis,Mollusks
+174,216,Chinese Mystery Snail covered by green algae,Context,Parasitism and Symbiosis,Mollusks
+175,217,Death cap mushroom,Species,Species ID,Fungi
+177,219,Japanese knotweed,Species,Species ID,Plants
+178,220,kahili ginger plant with open fruit capsules showing seeds,Species,Species ID,Plants
+179,221,a rosy wolfsnail,Species,Species ID,Mollusks
+181,223,Sunflower Sea Star,Species,Species ID,Animalia
+182,224,male Northern Elephant Seal,Appearance,Sex identification,Mammals
+184,226,moray eel with open mouth poking head out of burrows or crevices,Behavior,Defensive and Survival Behaviors,Fish
+185,227,Surgeonfish grazing on algae,Behavior,Feeding and Hydration,Fish
+186,228,Butterflyfish feeding on brain coral,Behavior,Feeding and Hydration,Fish
+188,233,Cooper's Hawk in adult plumage,Appearance,Life Cycle and Development,Birds
+189,234,breeding adult Black-bellied Plover,Appearance,Life Cycle and Development,Birds
+190,236,Hübner's Wasp Moth mating,Behavior,"Mating, Courtship, Reproduction",Insects
+191,239,Cart-Rut Shell snail egg mass,Appearance,Life Cycle and Development,Mollusks
+192,240,Maple tree with signs of tapping,Context,Human Impact,Plants
+193,241,Redwood tree with fire scars,Appearance,Health and Disease,Plants
+194,242,Axanthism in a green frog (Lithobates clamitans),Appearance,Unique appearances or morphs,Amphibians
+196,244,adult male Misumena vatia,Appearance,Sex identification,Arachnids
+197,245,Wolf spider with limb loss,Appearance,Health and Disease,Arachnids
+198,246,Scorpion with young on its back,Behavior,Cooperative and Social Behaviors,Arachnids
+199,247,Moorish Gecko with regenerated tail,Appearance,Health and Disease,Reptiles
+200,248,Two giraffes,Behavior,Cooperative and Social Behaviors,Mammals
+201,251,Young sea turtles heading towards the ocean,Behavior,Miscellaneous Behavior,Reptiles
+202,252,Alligator lizards mating,Behavior,"Mating, Courtship, Reproduction",Reptiles
+203,255,A coyote resting on human-build structures,Context,Human Impact,Mammals
+204,256,caterpillar of Gulf Fritillary butterfly,Appearance,Life Cycle and Development,Insects
+205,257,caterpillar of Common Buckeye butterfly,Appearance,Life Cycle and Development,Insects
+206,258,caterpillar of polyphemus moth,Appearance,Life Cycle and Development,Insects
+207,259,Male chorus frog with inflated vocal sacs,Behavior,"Mating, Courtship, Reproduction",Amphibians
+208,260,a beaver dam across a stream,Context,Animal Structures and Habitats,Mammals
+209,263,vervet monkey with visible bright blue scrotal areas,Behavior,"Mating, Courtship, Reproduction",Mammals
+210,264,dark-colored Dusky Leaf-monkey with orange-colored young,Appearance,Unique appearances or morphs,Mammals
+211,265,sloth hugging a human-made structure,Context,Human Impact,Mammals
+212,266,photo with two or more adult male lions,Behavior,Cooperative and Social Behaviors,Mammals
+215,269,Water Frogs in amplexus position,Behavior,"Mating, Courtship, Reproduction",Amphibians
+216,270,Nursery Web Spider carrying egg sac,Behavior,"Mating, Courtship, Reproduction",Arachnids
+217,271,House finch with yellow pigmentation,Appearance,Unique appearances or morphs,Birds
+218,272,Red-capped Plover performing broken wing distraction,Behavior,Defensive and Survival Behaviors,Birds
+219,273,Male Blue-black Grassquit in patchy blue-black and brown plumage,Appearance,Life Cycle and Development,Birds
+220,274,Caribou without palmate antlers,Appearance,Life Cycle and Development,Mammals
+221,275,European Stag Beetle lacking mandibles,Appearance,Sex identification,Insects
+222,276,Luna Moth missing long twisted tails on the hindwings,Appearance,Life Cycle and Development,Mammals
+223,277,Tropical Orb Weaver with multiple white spots in the abdominal dorsum,Appearance,Unique appearances or morphs,Arachnids
+224,280,North Island robin or South Island robin with leg bands,Appearance,Tracking and Identification,Birds
+226,282,Exactly three zebras standing together in a field,Context,Miscellaneous Context,Mammals
+227,283,Exactly five penguins,Context,Miscellaneous Context,Birds
+228,284,Splendid fairywren without blue body coloration,Appearance,Sex identification,Birds
+229,285,A koala that is not in a tree,Context,Miscellaneous Context,Mammals
+230,286,Octopus out of the water,Context,Miscellaneous Context,Mollusks
+231,287,Adult female black widow spider not in a web,Context,Miscellaneous Context,Arachnids
+232,288,an oak gall produced by a spongy oak apple gall wasp,Context,Animal Structures and Habitats,Insects
+233,289,a gall produced by an Acorn Plum Gall Wasp,Context,Animal Structures and Habitats,Insects
+236,292,A case made by a bagworm larva,Context,Animal Structures and Habitats,Insects
+237,293,a bag-shelter moth's silken bag nest on the ground near a plant,Appearance,Life Cycle and Development,Insects
+238,294,a bag-shelter moth's silken bag nest on a tree,Appearance,Life Cycle and Development,Insects
+239,295,A Eurasian Red Squirrel gathering material for its nest,Context,Animal Structures and Habitats,Mammals
+240,297,A close-up of a Star-nosed Mole's nose showing all appendages of its Eimer's organs,Context,Miscellaneous Context,Mammals
+241,298,hognose snake playing dead,Behavior,Defensive and Survival Behaviors,Reptiles
+243,300,a mud dauber wasp in the process of forming its nest out of mud,Behavior,Miscellaneous Behavior,Insects
+244,301,feral cat with prey,Behavior,Feeding and Hydration,Mammals
+245,304,Fur seal mother with pup,Behavior,Cooperative and Social Behaviors,Mammals
+246,305,Haliaeetus eagles in aerial cartwheeling flight with locked talons,Behavior,"Mating, Courtship, Reproduction",Birds
+247,306,A beached Portuguese Man o' War,Appearance,Health and Disease,Animalia
+248,307,A By-the-Wind Sailor washed up on a beach,Appearance,Health and Disease,Animalia
+249,308,bullhead shark egg case,Appearance,Life Cycle and Development,Fish

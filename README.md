@@ -54,18 +54,20 @@ python src/eval_fullrank_two_stage.py --split test --k 50
 
 ## INQUIRE-Rerank Evaluation
 
-**We recommend starting with INQUIRE-Rerank, as it is much smaller. INQUIRE-Rerank is available on [🤗 HuggingFace](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank)!**
+**We recommend starting with INQUIRE-Rerank, as it is much smaller and easier to work with. INQUIRE-Rerank is available on [🤗 HuggingFace](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank)!**
 
-**INQUIRE-Rerank** evaluates reranking performance by fixing an initial retrieval of 100 images for each query (from OpenClip's CLIP ViT-H-14-378). This also makes it easier to experiment with, as you only need a significantly smaller set of images.
+**INQUIRE-Rerank** evaluates reranking performance by fixing an initial retrieval of 100 images for each query (from OpenClip's CLIP ViT-H-14-378). For each query (e.g. _A mongoose standing upright alert_), your task is to re-order the 100 images so that more of the relevant images are at the "top" of the reranked order. 
 
-Evaluate reranking with different CLIP-style models:
+### Requirements
+
+There are no extra requirements for evaluating INQUIRE-Rerank! The data will automatically download from HuggingFace if you don't already have it. 
+
+### Reranking with large multi-modal models
+
+Evaluate reranking performance with large multi-modal models such as LLaVA-34B:
 
 ```
-python eval_clip_rerank_hf.py
+python src/eval_rerank_with_llm.py --split test
 ```
 
-Evaluate reranking with large multi-modal models, such as LLaVA-34B:
-
-TODO
-
-Since inference can take a long time, we've pre-computed the outputs for all large multi-modal models we work with! You can download these [here](data/README.md).
+Since inference can take a long time, we've pre-computed the outputs for all large multi-modal models we work with! You can download these [here](cache/README.md).

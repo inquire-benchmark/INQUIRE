@@ -139,9 +139,13 @@ class ModelWrapper:
         score = (prob_yes) / (prob_yes + prob_no)
         return score.item()
     
-    def generate(self, image_name, prompt, data_folder, temperature=0.5, output_scores=True, **generation_args):
-        image_file = os.path.join(data_folder, image_name)
-        raw_image = Image.open(image_file)
+    def generate(self, image_name, prompt, raw_image=None, data_folder=None, temperature=0.5, output_scores=True, **generation_args):
+        if raw_image is None and data_folder is None:
+            assert raw_image is not None, 'You must provide either the data_folder the load the image from, or the raw_image to use'
+        
+        if raw_image is None:
+            image_file = os.path.join(data_folder, image_name)
+            raw_image = Image.open(image_file)
         
         # BLIP models require image conversion BGR->RGB (https://huggingface.co/Salesforce/instructblip-flan-t5-xxl)
         if self.model_name.startswith('Salesforce/blip2-') or self.model_name.startswith('Salesforce/instructblip'):
@@ -165,8 +169,8 @@ class ModelWrapper:
         
         return out
     
-    def score_image(self, image_name, prompt, data_folder, **generation_args):
-        out = self.generate(image_name, prompt, data_folder, **generation_args)
+    def score_image(self, image_name, prompt, data_folder=None, raw_image=None, **generation_args):
+        out = self.generate(image_name, prompt, raw_image=raw_image, data_folder=data_folder, **generation_args)
         logits = out.scores[0][0]
         return self.scores_to_pred(logits)
     
@@ -204,9 +208,9 @@ class ModelWrapperWithCache(ModelWrapper):
         assert type(self.cache) == dict
         np.save(self.cache_path, self.cache)
         
-    def score_images(self, images, prompt, data_folder, temperature=0.5, override_cache=False, **generation_args):
+    def score_images(self, images, prompt, data_folder=None, raw_images=None, temperature=0.5, override_cache=False, **generation_args):
         scores = []
-        for image_name in images:
+        for idx, image_name in enumerate(images):
             key = image_name + "--" + prompt
             if key in self.cache and not override_cache:
                 score = self.cache[key]
@@ -214,7 +218,8 @@ class ModelWrapperWithCache(ModelWrapper):
                 if self.model is None:
                     print("Prediction not cached, loading model...")
                     self.load_model(self.model_name, self.device)
-                score = self.score_image(image_name, prompt, data_folder, temperature=0.5, **generation_args)
+                raw_image = None if raw_images is None else raw_images[idx]
+                score = self.score_image(image_name, prompt, data_folder=data_folder, raw_image=raw_image, temperature=0.5, **generation_args)
                 self.cache[key] = score
             else:
                 raise ValueError("Tried to load from cache, but no entry found. If you mean to load "
