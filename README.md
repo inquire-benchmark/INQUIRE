@@ -92,9 +92,11 @@ Since inference can take a long time, we've pre-computed the outputs for all lar
 ## Citation
 If you use INQUIRE or find our work helpful, please consider starring our repo and citing our paper. Thanks!
 
+```
 @article{vendrow2024inquire,
   title={INQUIRE: A Natural World Text-to-Image Retrieval Benchmark}, 
   author={Vendrow, Edward and Pantazis, Omiros and Shepard, Alexander and Brostow, Gabriel and Jones, Kate E and Mac Aodha, Oisin and Beery, Sara and Van Horn, Grant},
   journal={NeurIPS},
   year={2024},
 }
+```
