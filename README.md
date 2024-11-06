@@ -2,7 +2,7 @@
 
 ![INQUIRE teaser figure](assets/teaser.jpg)
 
-[**🌐 Homepage**](https://inquire-benchmark.github.io/) | [**🖼️ Dataset**](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/) | [**🤗 HuggingFace**](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank)
+[**🌐 Homepage**](https://inquire-benchmark.github.io/) | [**🖼️ Dataset**](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/) | [**🤗 HuggingFace**](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank) | [**📖 Paper**](https://arxiv.org/abs/2411.02537)
 
 INQUIRE is an expert-level text-to-image retrieval benchmark designed to challenge multi-modal models. 
 
@@ -11,6 +11,7 @@ INQUIRE is an expert-level text-to-image retrieval benchmark designed to challen
 
 
 ## 🔔 News
+- **🚀 [2024-11-06]** The paper for INQUIRE is up on arXiv! Check it out [here](https://arxiv.org/abs/2411.02537).
 - **🚀 [2024-10-08]** INQUIRE was accepted to NeurIPS 2024 (Datasets and Benchmarks Track)!
 - **🚀 [2024-06-07]** INQUIRE is up!
 
