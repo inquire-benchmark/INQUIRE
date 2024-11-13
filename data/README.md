@@ -35,7 +35,7 @@ All data is available for download at the following links:
 ### INQUIRE
 
 - **[inquire_queries_val.csv (50MB)](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/inquire)**: The list of 50 INQUIRE queries and their associated metadata, in the validation split.
-- **[inquire_queries_test.csv (50MB)]([#](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/inquire)**: The list of 200 INQUIRE queries and their associated metadata, in the test split.
+- **[inquire_queries_test.csv (50MB)](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/inquire)**: The list of 200 INQUIRE queries and their associated metadata, in the test split.
 - **[inquire_annotations.csv (50MB)](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/inquire)**: All (query, image) relevant pairs
 
 ### iNat24
