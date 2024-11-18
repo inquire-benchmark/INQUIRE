@@ -66,19 +66,29 @@ python src/eval_fullrank.py --split test --k 50
 After the first stage, we can use large multi-modal models to re-rank the top k retrievals to improve results. This stage requires access to the iNat24 images, which you can download [here](data/README.md). To run the second stage retrieval, use the following command:
 
 ```
-python src/eval_fullrank_two_stage.py --split test --k 50
+python src/eval_fullrank_two_stage.py --split test --k 50 --from_k 50
 ```
+
+The `from_k` parameter decides the number of top CLIP retrievals to rerank with the large multi-modal model, after which only the top 50 will be kept for final evaluation. In our paper, we use a `from_k` of 50 and 100.
 
 
 ## INQUIRE-Rerank Evaluation
 
-**We recommend starting with INQUIRE-Rerank, as it is much smaller and easier to work with. INQUIRE-Rerank is available on [🤗 HuggingFace](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank)!**
+**We recommend starting here, as INQUIRE-Rerank is much smaller and easier to work with. INQUIRE-Rerank is available on [🤗 HuggingFace](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank)!**
 
 **INQUIRE-Rerank** evaluates reranking performance by fixing an initial retrieval of 100 images for each query (from OpenClip's CLIP ViT-H-14-378). For each query (e.g. _A mongoose standing upright alert_), your task is to re-order the 100 images so that more of the relevant images are at the "top" of the reranked order. 
 
 ### Requirements
 
 There are no extra requirements for evaluating INQUIRE-Rerank! The data will automatically download from HuggingFace if you don't already have it. 
+
+### Reranking with embedding models like CLIP
+
+Evaluate reranking performance with CLIP models:
+
+```
+python src/eval_rerank_with_clip.py --split test
+```
 
 ### Reranking with large multi-modal models
 
