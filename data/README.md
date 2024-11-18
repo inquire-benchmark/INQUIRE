@@ -34,9 +34,11 @@ All data is available for download at the following links:
 
 ### INQUIRE
 
-- **[inquire_queries_val.csv (50MB)](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/inquire/inquire_queries_val.csv)**: The list of 50 INQUIRE queries and their associated metadata, in the validation split.
-- **[inquire_queries_test.csv (50MB)](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/inquire/inquire_queries_test.csv)**: The list of 200 INQUIRE queries and their associated metadata, in the test split.
-- **[inquire_annotations.csv (50MB)](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/inquire/inquire_annotations.csv)**: All (query, image) relevant pairs
+- **inquire_queries_val.csv (in repo)**: The list of 50 INQUIRE queries and their associated metadata, in the validation split.
+- **inquire_queries_test.csv (in repo)**: The list of 200 INQUIRE queries and their associated metadata, in the test split.
+- **inquire_annotations.csv (in repo)**: All 33k (query, image) relevant pairs, matching a query and a relevant image within iNat24.
+
+**INQUIRE-Rerank** is separately available on HuggingFace, [here](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank).
 
 ### iNat24
 
