@@ -18,8 +18,10 @@ from lmm_utils import ModelWrapperWithCache, get_lmm_prompt, convert_gpt_respons
 parser = argparse.ArgumentParser(description='Run retrieval evaluation.')
 parser.add_argument('--split', type=str, default='test', choices=['val', 'test'],
                     help="Dataset split to evaluate on. Options: 'val', 'test'. Default is 'test'.")
+parser.add_argument('--from_k', type=int, default=50,
+                    help="How many top-k items to initially retrieve. Default is 50.")
 parser.add_argument('--k', type=int, default=50,
-                    help="Top-k value for retrieval evaluation. Default is 50.")
+                    help="Top-k value for retrieval evaluation (i.e. AP@k). Default is 50.")
 args = parser.parse_args()
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -27,9 +29,11 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 inat24_dir = 'data/inat24'
 inquire_dir = 'data/inquire'
 k = args.k
+from_k = args.from_k
 split = args.split
 stage_one_method = 'vit-h-14-378'
 
+assert from_k >= k, "from_k must be at least as large as the k used to evaluate"
 
 # Load INQUIRE Fullrank
 queries_df = pd.read_csv(os.path.join(inquire_dir, f'inquire_queries_{split}.csv'))
@@ -42,22 +46,22 @@ top_k_store = TopKPredictionStore(inat24_dir, cache_dir='./cache', device=device
 
 model_names = [
     "Salesforce/blip2-flan-t5-xxl",
-#     "Salesforce/instructblip-flan-t5-xxl", 
-#     "google/paligemma-3b-mix-448",
-#     "llava-hf/llava-1.5-13b-hf",
-#     "llava-hf/llava-v1.6-mistral-7b-hf",
-#     "llava-hf/llava-v1.6-34b-hf",
-#     "Efficient-Large-Model/VILA1.5-13B",
-#     "Efficient-Large-Model/VILA1.5-40b",
-#     'openai-gpt4turbo20240409',
-#     'openai-gpt4o20240806',
+    "Salesforce/instructblip-flan-t5-xxl", 
+    "google/paligemma-3b-mix-448",
+    "llava-hf/llava-1.5-13b-hf",
+    "llava-hf/llava-v1.6-mistral-7b-hf",
+    "llava-hf/llava-v1.6-34b-hf",
+    "Efficient-Large-Model/VILA1.5-13B",
+    "Efficient-Large-Model/VILA1.5-40b",
+    'openai-gpt4turbo20240409',
+    'openai-gpt4o20240806',
 ]
 
 results = []
 for model_name in model_names:
-    model_cache = ModelWrapperWithCache(model_name, device=device)
+    model_cache = ModelWrapperWithCache(model_name, device=device, cache_dir='../fg_retrieval/top_k_cache')
 
-    top_ks = top_k_store.get_top_k(queries, stage_one_method, k=k)
+    top_ks = top_k_store.get_top_k(queries, stage_one_method, k=from_k)
 
     for query_row, top_k_data in zip(queries_df.iloc, top_ks):
         annotations = annotations_df[annotations_df['query_id'] == query_row['query_id']]
@@ -71,7 +75,12 @@ for model_name in model_names:
         if model_name.startswith('openai-gpt'):
             y_pred = convert_gpt_response_to_preds(y_pred)
 
-        pr, recall, ap, ndcg, mrr = compute_retrieval_metrics(y_true, y_pred, count_pos=len(pos_images))
+        y_pred_ord = np.flip(np.argsort(y_pred))[:k]
+
+        y_pred_new = y_pred[y_pred_ord]
+        y_true_new = y_true[y_pred_ord]
+        pr, recall, ap, ndcg, mrr = compute_retrieval_metrics(y_true_new, y_pred_new, count_pos=len(pos_images))
+        
         results.append({
             'model': model_name,
             'query': query_row.query_text,
@@ -100,6 +109,6 @@ print(aggregated_results)
 print('='*40)
 
 # Save results to CSV
-output_csv = f'results_fullrank_two_stage_{split}_k{k}.csv'
+output_csv = f'results_fullrank_two_stage_{split}_from_k{from_k}_to_k{k}.csv'
 print('Saving to:', output_csv)
 results_df.to_csv(output_csv, index=False)

@@ -10,19 +10,29 @@ import pandas as pd
 import numpy as np
 import torch
 from collections import defaultdict 
+import argparse
 
 from utils import load_clip
 from metrics import MetricAverage, compute_retrieval_metrics
 
 
-device = 'cuda'
-batch_size = 256
-num_workers = 8
-save_results_path = 'results_clip_rerank.csv'
+# Command line argument parser
+parser = argparse.ArgumentParser(description='Run retrieval evaluation.')
+parser.add_argument('--split', type=str, default='test', choices=['val', 'test'],
+                    help="Dataset split to evaluate on. Options: 'val', 'test'. Default is 'test'.")
+args = parser.parse_args()
+
+split = args.split
+save_results_path = f'results_rerank_with_clip_{split}.csv'
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Load INQUIRE-Rerank from HuggingFace
-dataset = load_dataset("evendrow/INQUIRE-Rerank", split="train")
+dataset = load_dataset("evendrow/INQUIRE-Rerank", split=('validation' if split == 'val' else 'test'))
 queries = np.unique(dataset['query']).tolist()
+
+batch_size = 256
+num_workers = 8
 
 all_models = {
     'vit-b-32': 'hf_clip:openai/clip-vit-base-patch32',
