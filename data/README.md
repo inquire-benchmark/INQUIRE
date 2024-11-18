@@ -38,7 +38,7 @@ All data is available for download at the following links:
 - **inquire_queries_test.csv (in repo)**: The list of 200 INQUIRE queries and their associated metadata, in the test split.
 - **inquire_annotations.csv (in repo)**: All 33k (query, image) relevant pairs, matching a query and a relevant image within iNat24.
 
-**INQUIRE-Rerank** is separately available on HuggingFace, [here](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank).
+**INQUIRE-Rerank** (~1.9GB) is separately available on HuggingFace [here](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank), and includes all the images and labels needed for its task.
 
 ### iNat24
 
