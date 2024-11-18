@@ -2,22 +2,39 @@
 
 ![INQUIRE teaser figure](assets/teaser.jpg)
 
-[**🌐 Homepage**](https://inquire-benchmark.github.io/) | [**🖼️ Dataset**](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/) | [**🤗 HuggingFace**](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank)
+[**🌐 Homepage**](https://inquire-benchmark.github.io/) | [**🖼️ Dataset**](https://github.com/inquire-benchmark/INQUIRE/tree/main/data/) | [**🤗 HuggingFace**](https://huggingface.co/datasets/evendrow/INQUIRE-Rerank) | [**📖 Paper**](https://arxiv.org/abs/2411.02537)
 
-INQUIRE is a benchmark for expert-level natural world image retrieval queries.
+INQUIRE is an expert-level text-to-image retrieval benchmark designed to challenge multi-modal models. 
 
-**Please note that this repository is preliminary. Both the code and dataset will be updated.**
+
+**Please note that this repository is preliminary. Both the code and dataset will be updated soon.**
 
 
 ## 🔔 News
+- **🚀 [2024-11-06]** The paper for INQUIRE is up on arXiv! Check it out [here](https://arxiv.org/abs/2411.02537).
 - **🚀 [2024-10-08]** INQUIRE was accepted to NeurIPS 2024 (Datasets and Benchmarks Track)!
-- **🚀 [2024-06-07]** INQUIRE is up! 
+- **🚀 [2024-06-07]** INQUIRE is up!
+
+
+## 🌟 Key Features
+- Large (5 million images) and exhaustively annotated (1-1.5k relevant images per query)
+- Queries come from experts (e.g., ecologists, biologists, ornithologists, entomologists, oceanographers)
+- Supports **two-stage retrieval** with CLIP models and reranking with large multimodal models.
+- Includes pre-computed embeddings and model outputs for faster evaluation.
+
+
 
 ## Download
 
 The **INQUIRE benchmark** and **the iNaturalist 2024 dataset (iNat24)** are available for public download. Please find information and download links [here](data/README.md).
 
 ## Setup
+
+Clone the repository and navigate into it:
+```bash
+git clone https://github.com/inquire-benchmark/INQUIRE.git
+cd INQUIRE
+```
 
 If you'd like, you can create a new environment in which to set up the repo:
 ```bash
@@ -72,3 +89,15 @@ python src/eval_rerank_with_llm.py --split test
 ```
 
 Since inference can take a long time, we've pre-computed the outputs for all large multi-modal models we work with! You can download these [here](cache/README.md).
+
+## Citation
+If you use INQUIRE or find our work helpful, please consider starring our repo and citing our paper. Thanks!
+
+```
+@article{vendrow2024inquire,
+  title={INQUIRE: A Natural World Text-to-Image Retrieval Benchmark}, 
+  author={Vendrow, Edward and Pantazis, Omiros and Shepard, Alexander and Brostow, Gabriel and Jones, Kate E and Mac Aodha, Oisin and Beery, Sara and Van Horn, Grant},
+  journal={NeurIPS},
+  year={2024},
+}
+```
