@@ -1,6 +1,6 @@
 # INQUIRE and iNat2024
 
-This directory stores the INQUIRE bnechmark, the iNaturalist 2024 dataset, and associated files such as embeddings and knn indices.
+This directory stores the INQUIRE benchmark, the iNaturalist 2024 dataset, and associated files such as embeddings and knn indices.
 
 ## Structure
 
