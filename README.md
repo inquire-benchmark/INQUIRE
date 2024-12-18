@@ -6,11 +6,11 @@
 
 INQUIRE is an expert-level text-to-image retrieval benchmark designed to challenge multi-modal models. 
 
-
-**Please note that this repository is preliminary. Both the code and dataset will be updated soon.**
+This dataset aims to emulate real world image retrieval and analysis problems faced by scientists working with large-scale image collections. Therefore, we hope that INQUIRE will both encourage and track advancements in the real scientific utility of AI systems.
 
 
 ## 🔔 News
+- **🚀 [2024-12-17]** INQUIRE was spotlighted by MIT News! Check our the article [here](https://www.csail.mit.edu/news/ecologists-find-computer-vision-models-blind-spots-retrieving-wildlife-images).
 - **🚀 [2024-11-06]** The paper for INQUIRE is up on arXiv! Check it out [here](https://arxiv.org/abs/2411.02537).
 - **🚀 [2024-10-08]** INQUIRE was accepted to NeurIPS 2024 (Datasets and Benchmarks Track)!
 - **🚀 [2024-06-07]** INQUIRE is up!
