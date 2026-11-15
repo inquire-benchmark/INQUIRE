@@ -5,6 +5,7 @@ numpy==1.26.3
 pandas==2.2.0
 pyarrow==14.0.2
 scikit-learn==1.4.0
+setuptools<82  # clip (used by all_clip) imports pkg_resources, removed in setuptools 82
 torch==2.1.2
 transformers==4.45.1
 tqdm>=4.66.1

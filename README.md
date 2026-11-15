@@ -90,6 +90,14 @@ Evaluate reranking performance with CLIP models:
 python src/eval_rerank_with_clip.py --split test
 ```
 
+To evaluate one model on CPU:
+
+```
+python src/eval_rerank_with_clip.py --split test --models vit-b-32 --num_workers 0
+```
+
+The two WildCLIP models load their checkpoints from `./scripts/wildclip/models/`, which is not included in this repository.
+
 ### Reranking with large multi-modal models
 
 Evaluate reranking performance with large multi-modal models such as LLaVA-34B:

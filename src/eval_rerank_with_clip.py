@@ -20,6 +20,10 @@ from metrics import MetricAverage, compute_retrieval_metrics
 parser = argparse.ArgumentParser(description='Run retrieval evaluation.')
 parser.add_argument('--split', type=str, default='test', choices=['val', 'test'],
                     help="Dataset split to evaluate on. Options: 'val', 'test'. Default is 'test'.")
+parser.add_argument('--models', type=str, nargs='+', default=None,
+                    help="Subset of models to evaluate (e.g. vit-b-32). Default is all models.")
+parser.add_argument('--num_workers', type=int, default=8,
+                    help="DataLoader workers (default 8). Use 0 on macOS/Windows.")
 args = parser.parse_args()
 
 split = args.split
@@ -32,7 +36,7 @@ dataset = load_dataset("evendrow/INQUIRE-Rerank", split=('validation' if split =
 queries = np.unique(dataset['query']).tolist()
 
 batch_size = 256
-num_workers = 8
+num_workers = args.num_workers
 
 all_models = {
     'vit-b-32': 'hf_clip:openai/clip-vit-base-patch32',
@@ -50,6 +54,9 @@ all_models = {
     'siglip-so400m-14-384': 'open_clip:ViT-SO400M-14-SigLIP-384/webli',
 }
 
+if args.models is not None:
+    all_models = {name: all_models[name] for name in args.models}
+
 results = []
 for title, clip_name in all_models.items():
     model, preprocess, tokenizer = load_clip(clip_name, use_jit=False, device=device)
@@ -63,7 +70,8 @@ for title, clip_name in all_models.items():
 
     image_emb_cache = {}
     for images, ids in tqdm(dataloader, total=len(dataset)//batch_size):
-        with torch.no_grad(), torch.autocast(device):
+        # CPU autocast uses bfloat16, which is much slower than float32 on most CPUs
+        with torch.no_grad(), torch.autocast(device, enabled=(device == "cuda")):
             image_embs = model.encode_image(images.to(device)).cpu()
             image_embs /= image_embs.norm(dim=-1, keepdim=True)
         image_emb_cache.update(dict(zip(ids, image_embs)))
